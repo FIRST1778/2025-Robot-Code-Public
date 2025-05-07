@@ -1,0 +1,61 @@
+{
+    "name": "1778",
+    "rotations": [
+      {
+        "axis": "x",
+        "degrees": 90
+      },
+      {
+        "axis": "z",
+        "degrees": 90
+      }
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+   
+    "components": [
+        {
+            "zeroedRotations": [],
+            "zeroedPosition": [
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "zeroedRotations": [],
+            "zeroedPosition": [
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "zeroedRotations": [],
+            "zeroedPosition": [
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "zeroedRotations": [],
+            "zeroedPosition": [
+                0,
+                0,
+                0
+            ]
+        },
+	{
+            "zeroedRotations": [],
+            "zeroedPosition": [
+                0,
+                0,
+                0
+            ]
+        }
+    ]
+  }

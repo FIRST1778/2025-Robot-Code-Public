@@ -1,0 +1,11 @@
+1. open advantagescope
+2. click "help" in the top left
+3. click "show assets folder"
+4. paste the "Robot_1778" folder into the folder that is opened
+5. in advantagescope, click "file"
+6. click "open logs" and select the log file you would like to view
+7. drag the poses into the "poses" bar in the bottom of the 3d field tab, in numerical order
+    (you need to drag the poses directly onto the base pose and select that they are a component,
+    if you're lost view here: https://youtu.be/unX1PsPi0VA?t=307 )
+8. be sure to select our robot model by clicking on the arrow-looking thing to the left of our swerve pose
+9. press space to play

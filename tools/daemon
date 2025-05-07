@@ -1,0 +1,15 @@
+#!/bin/sh -x
+
+# Script to allow other people to clone your laptop's
+# repositories.  Make sure to create a "git-daemon-export-ok"
+# file inside the .git directory of whichever repository you want to
+# publish.
+#
+# Usage from your machine: "./daemon"
+# (it will print "Ready to rumble")
+#
+# Usage from other machines: "git clone git://bluff.local/f25"
+# where bluff.local is the hostname of your machine
+# and f25 is the repository path relative to your home directory.
+
+exec git daemon --reuseaddr --base-path="$HOME" --verbose "$@"

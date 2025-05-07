@@ -1,0 +1,120 @@
+digraph StateMachine {
+    rankdir=LR;
+    node [shape=ellipse, style=filled, fillcolor=lightblue, fontname="Helvetica"];
+
+    StartPosition [shape=doublecircle, fillcolor=lightyellow];
+    Rest [shape=doublecircle, fillcolor=lightgreen];
+
+    PreScore [fillcolor=steelblue];
+
+    SourceIntake [fillcolor=lightcyan];
+    ArmSourceIntake [fillcolor=lightcyan];
+
+    ReverseHandoff [fillcolor=pink];
+    PreHandoff [fillcolor=plum];
+    Handoff [fillcolor=plum];
+
+    PrepareL4 [fillcolor=lightblue];
+    StartL4 [fillcolor=skyblue];
+    PlaceL4 [fillcolor=deepskyblue];
+    AfterL4 [fillcolor=royalblue];
+
+    PrepareL3 [fillcolor=lightblue];
+    StartL3 [fillcolor=skyblue];
+    PlaceL3 [fillcolor=deepskyblue];
+    AfterL3 [fillcolor=royalblue];
+
+    PrepareL2 [fillcolor=lightblue];
+    StartL2 [fillcolor=skyblue];
+    PlaceL2 [fillcolor=deepskyblue];
+    AfterL2 [fillcolor=royalblue];
+
+    PreTrough [fillcolor=cornflowerblue];
+    Trough [fillcolor=cornflowerblue];
+
+    PreGetAlgae [fillcolor=lightseagreen];
+    GetAlgae [fillcolor=mediumseagreen];
+    PostGetAlgae [fillcolor=seagreen];
+    AlgaeRest [fillcolor=darkseagreen];
+    AlgaeExit [fillcolor=palegreen];
+    PreBarge [fillcolor=springgreen];
+    ScoreBarge [fillcolor=forestgreen];
+    AlgaeDescore [fillcolor=olivedrab];
+    PreProcessor [fillcolor=lawngreen];
+    ScoreProcessor [fillcolor=limegreen];
+
+    PreAlgaeGroundIntake [fillcolor=khaki];
+    AlgaeGroundIntake [fillcolor=gold];
+    ExitAlgaeGroundIntake [fillcolor=orange];
+
+    PopsiclePickup [fillcolor=lightpink];
+    PrePopsiclePickup [fillcolor=thistle];
+
+    StartPosition -> Rest;
+    StartPosition -> PreScore;
+    Rest -> ArmSourceIntake;
+    ArmSourceIntake -> Rest [color=red];
+    Rest -> SourceIntake;
+    SourceIntake -> Rest [color=red];
+    Rest -> ReverseHandoff;
+    ReverseHandoff -> Rest [color=red];
+    Rest -> PreTrough;
+    PreTrough -> Trough;
+    PreTrough -> Rest [color=red];
+    Trough -> Rest [color=red];
+    Rest -> PreHandoff;
+    PreHandoff -> Handoff;
+    Handoff -> Rest [color=red];
+    PreScore -> Rest [color=red];
+    PreScore -> PrepareL4;
+    PreScore -> PrepareL3;
+    PreScore -> PrepareL2;
+
+    PrepareL4 -> StartL4;
+    StartL4 -> PlaceL4;
+    PlaceL4 -> AfterL4;
+    AfterL4 -> Rest [color=red];
+
+    PrepareL3 -> StartL3;
+    StartL3 -> PlaceL3;
+    PlaceL3 -> AfterL3;
+    AfterL3 -> Rest [color=red];
+
+    PrepareL2 -> StartL2;
+    StartL2 -> PlaceL2;
+    PlaceL2 -> AfterL2;
+    AfterL2 -> Rest [color=red];
+
+    Rest -> PreGetAlgae;
+    PreGetAlgae -> GetAlgae;
+    GetAlgae -> PreGetAlgae;
+    GetAlgae -> PostGetAlgae;
+    PostGetAlgae -> AlgaeRest;
+    PostGetAlgae -> Rest [color=red];
+
+    AlgaeRest -> AlgaeExit;
+    AlgaeExit -> Rest [color=red];
+    AlgaeRest -> PreBarge;
+    PreBarge -> AlgaeRest;
+    PreBarge -> ScoreBarge;
+    ScoreBarge -> PreBarge;
+    ScoreBarge -> Rest [color=red];
+    ScoreBarge -> AlgaeExit;
+    Rest -> AlgaeDescore;
+    AlgaeDescore -> Rest [color=red];
+    Rest -> PreProcessor;
+    PreProcessor -> ScoreProcessor;
+    ScoreProcessor -> AlgaeRest;
+    PreProcessor -> AlgaeRest;
+
+    Rest -> PreAlgaeGroundIntake;
+    PreAlgaeGroundIntake -> AlgaeGroundIntake;
+    AlgaeGroundIntake -> ExitAlgaeGroundIntake;
+    ExitAlgaeGroundIntake -> AlgaeRest;
+
+    PopsiclePickup -> PrePopsiclePickup;
+    PrePopsiclePickup -> Rest [color=red];
+    Rest -> PrePopsiclePickup;
+    PrePopsiclePickup -> PopsiclePickup;
+    PopsiclePickup -> PreScore;
+}
